@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body{
+    height: 100%;
+    width: 100%;
+}
+:root{
+    /*BackGround Colors*/
+    --bg-primary-color: #0c0c0c;
+    --bg-secondary-color: #fdfdfc;
+    --bg-food-color: #ff3b3b;
+
+
+    /*Text Colors*/
+    --text-primary-color: #f0f0f0;
+
+    /*Spacing Variable*/
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 16px;
+    --space-l: 24px;
+    --space-xl: 32px;
+    --space-2xl: 40px;
+    --space-3xl: 42px;
+
+    /*Border Color*/
+    --border-primary-color: #333333;
+
+    /*border radius*/
+    --border-radius-xs: 4px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-l: 16px;
+    --border-radius-xl: 20px;
+    --border-radius-2xl: 24px;
+
+
+}
+html{
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+main,
+section{
+    height: 100%;
+    width: 100%;
+}
+section{
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--space-l);
+}
+section .infos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--border-primary-color);
+    border-radius: var(--border-radius-sm);
+    
+}
+.board{
+    border: 1px solid var(--border-primary-color);
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    grid-template-rows: repeat(auto-fill,minmax(30px, 1fr));
+}
+.block{
+    border: 1px solid var(--border-primary-color);
+    border-radius: 50%;
+}
+.fill{
+    background-color: var(--bg-secondary-color);
+    transition: background-color 0.1s ease;
+}
+.food{
+    background-color: var(--bg-food-color);
+}
+.btn{
+    padding: var(--space-s) var(--space-m);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    transform: scale(1.1);
+}
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    background-color: #35353587;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal .start-game, .modal .game-over{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-l);
+}
+.modal .game-over{
+    display: none;
+}
