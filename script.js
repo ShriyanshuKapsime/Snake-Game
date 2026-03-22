@@ -28,13 +28,15 @@ const gameOverModal = document.querySelector(".game-over");
 const highScoreElement = document.querySelector("#high-score");
 const scoreElement = document.querySelector("#score");
 const timeElement = document.querySelector("#time");
+const levelElement = document.querySelector("#level");
 
 let highScore =localStorage.getItem("highScore")||0;
 let score = 0;
 let time = `00:00`; 
+let level = "Novice";
 highScoreElement.innerText = highScore;
 timeElement.innerText = time;
-
+levelElement.innerText = level;
 const blocks = []
 let direction = "down";
 
@@ -94,16 +96,22 @@ function render(){
         score +=10;
         if(score===100){
             clearInterval(intervalId);
+            level = "Pro";
+            levelElement.innerText=level;
             intervalId = setInterval(()=>{
                 render();
             },150);
         }else if(score===200){
             clearInterval(intervalId);
+            level = "G.O.A.T";
+            levelElement.innerText=level;
             intervalId = setInterval(()=>{
                 render();
             },100);
         }else if(score===300){
             clearInterval(intervalId);
+            level = "GOD";
+            levelElement.innerText=level;
             intervalId = setInterval(()=>{
                 render();
             },50)
@@ -151,9 +159,11 @@ restartButton.addEventListener("click",()=>{
     })
     score = 0;
     time = `00:00`;
+    level= "Novice";
     scoreElement.innerText = score;
     timeElement.innerText = time;
     highScoreElement.innerText = highScore;
+    levelElement.innerText = level;
 
     modal.style.display = "none";
     direction = "down";
